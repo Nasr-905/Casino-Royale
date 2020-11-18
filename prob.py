@@ -119,7 +119,7 @@ def begin(balance, spin):
     print("Red:" + str(result["red"]))
     answer = chance(bet, guess, balance, result, spin)
     balance = answer["balance"]
-    return balance
+    return [balance, guess, bet, spin, result, answer]
 
 
 spin = 0
@@ -164,19 +164,37 @@ def rules():
 
 rules()
 
-balance = start()
+deposit = start()
 
 
 while True:
-    balance = begin(balance, spin)
+    answer = begin(deposit, spin)
+    balance = answer[0]
     while True:
         playAgain = input("Do you want to play again? (Y) (N)")
         if playAgain in ("y", "n", "Y", "N"):
             break
         print("Please enter either (Y) or (N)")
     if playAgain == "Y" or playAgain == "y":
-        balance = restart(balance)
+        print("Values for this round (send them to me please): ")
+        print("Starting balance: " + str(deposit))
+        print("guess: " + str(answer[1]))
+        print("bet amount: " + str(answer[2]))
+        print("spin: " + str(answer[3]))
+        print("result: " + str(answer[4]))
+        print("win: " + str(answer[5]["won"]))
+        print("loss: " + str(answer[5]["lost"]))
+        print("Ending balance: " + str(answer[5]["balance"]))
+        deposit = restart(balance)
     elif playAgain == "N" or playAgain == "n":
         playAgain = False
-        print("Goodbye")
+        print("Values for the last round (send them to me please): ")
+        print("Starting balance: " + str(deposit))
+        print("guess: " + str(answer[1]))
+        print("bet amount: " + str(answer[2]))
+        print("spin: " + str(answer[3]))
+        print("result: " + str(answer[4]))
+        print("win: " + str(answer[5]["won"]))
+        print("loss: " + str(answer[5]["lost"]))
+        print("Ending balance: " + str(answer[5]["balance"]))
         break
