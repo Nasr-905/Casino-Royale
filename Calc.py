@@ -66,24 +66,22 @@ freqRed = [frequency1(0.1, 0.9, 8.5), frequency2(0.1, 0.9, 8.5), frequency3(0.1,
 
 totalFreq = [freqGreen, freqYellow, freqBlue, freqRed]
 
-total = 0
-# for a in totalFreq:
-#     for b in a:
-#         for c in b:
-#             total = total + c["value"]
-#             print(c["value"])
+total1 = 0
+total2 = 0
+total3 = 0
+for a in totalFreq:
+    for b in a:
+        for c in b:
+            total1 = total1 + c["value"]
+            print(c["value"])
 
-# for a in freqGreen:
-#     for b in a:
-#         total = total + b["value"]
-#         print(b["value"])
+for a in freqGreen:
+   for b in a:
+        total2 = total2 + b["value"]
+        print(b["value"])
 
 for i in frequency4(0.4, 0.6, 1.3):
-    total = total + i["value"]
+    total3 = total3 + i["value"]
     print(i["value"])
 
 print(total)
-
-# for i in something
-#
-# freqBlue["freqSpin1"]["prob1"]["freq"]
