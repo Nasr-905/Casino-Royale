@@ -146,7 +146,7 @@ def rules():
     sleep(1)
     print("Red (10%, 850%)")
     sleep(1)
-    print("After that, the wheel spins between 3 and 7 for the number of marbles you can choose")
+    print("After that, the wheel spins between 1 and 4 for the number of marbles you can choose")
     sleep(2)
     print("For every marble you choose that is a different colour from your original bet...")
     sleep(2)
